@@ -37,7 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       Navigator.pushReplacementNamed(context, '/home');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Registration failed. Please try again.')),
+        const SnackBar(content: Text('Грешка при регистрацията. Моля, опитайте отново.')),
       );
     }
   }
@@ -54,33 +54,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
             children: [
               CustomTextField(
                 controller: nameController,
-                label: 'Name',
+                label: 'Име',
                 validator: Validators.validateNotEmpty,
               ),
               const SizedBox(height: 16),
               CustomTextField(
                 controller: emailController,
-                label: 'Email',
+                label: 'Имейл',
                 validator: Validators.validateEmail,
               ),
               const SizedBox(height: 16),
               CustomTextField(
                 controller: passwordController,
-                label: 'Password',
+                label: 'Парола',
                 obscureText: true,
                 validator: Validators.validatePassword,
               ),
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: registerUser,
-                child: const Text('Register'),
+                child: const Text('Регистрация'),
               ),
               const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/login');
                 },
-                child: const Text('Already have an account? Login'),
+                child: const Text('Вече имате акаунт? Влезте'),
               ),
             ],
           ),

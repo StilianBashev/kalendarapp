@@ -60,7 +60,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Calendar')),
+      appBar: AppBar(title: const Text('Календар')),
       body: Column(
         children: [
           TableCalendar(
@@ -79,7 +79,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
             child: _loading
                 ? const Center(child: CircularProgressIndicator())
                 : _events.isEmpty
-                    ? const Center(child: Text('No events'))
+                    ? const Center(child: Text('Все още няма събития за този ден.'))
                     : ListView.builder(
                         itemCount: _events.length,
                         itemBuilder: (_, index) {

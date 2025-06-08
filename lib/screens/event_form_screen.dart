@@ -123,7 +123,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
       Navigator.of(context).pop();
     } catch (_) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Error saving event')),
+        const SnackBar(content: Text('Грешка ;( Моля, опитайте отново.')),
       );
     }
   }
@@ -139,7 +139,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
     final isEdit = widget.event != null;
 
     return Scaffold(
-      appBar: AppBar(title: Text(isEdit ? 'Edit Event' : 'New Event')),
+      appBar: AppBar(title: Text(isEdit ? 'Редактирай събитие' : 'Ново събитие')),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Form(
@@ -148,13 +148,13 @@ class _EventFormScreenState extends State<EventFormScreen> {
             children: [
               CustomTextField(
                 controller: title,
-                label: 'Title',
+                label: 'Заглавие',
                 validator: Validators.validateNotEmpty,
               ),
               const SizedBox(height: 16),
               CustomTextField(
                 controller: description,
-                label: 'Description',
+                label: 'Описание',
               ),
               const SizedBox(height: 16),
               Row(
@@ -162,13 +162,13 @@ class _EventFormScreenState extends State<EventFormScreen> {
                   Expanded(
                     child: TextButton(
                       onPressed: () => pickDate(true),
-                      child: Text('Start Date: ${formatDate(startDate!)}'),
+                      child: Text('Начална дата: ${formatDate(startDate!)}'),
                     ),
                   ),
                   Expanded(
                     child: TextButton(
                       onPressed: () => pickTime(true),
-                      child: Text('Time: ${formatTime(startTime!)}'),
+                      child: Text('Време: ${formatTime(startTime!)}'),
                     ),
                   ),
                 ],
@@ -178,13 +178,13 @@ class _EventFormScreenState extends State<EventFormScreen> {
                   Expanded(
                     child: TextButton(
                       onPressed: () => pickDate(false),
-                      child: Text('End Date: ${formatDate(endDate!)}'),
+                      child: Text('Крайна дата: ${formatDate(endDate!)}'),
                     ),
                   ),
                   Expanded(
                     child: TextButton(
                       onPressed: () => pickTime(false),
-                      child: Text('Time: ${formatTime(endTime!)}'),
+                      child: Text('Време: ${formatTime(endTime!)}'),
                     ),
                   ),
                 ],
@@ -192,7 +192,7 @@ class _EventFormScreenState extends State<EventFormScreen> {
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: saveEvent,
-                child: Text(isEdit ? 'Update Event' : 'Save Event'),
+                child: Text(isEdit ? 'Редактирай' : 'Запази промените'),
               ),
             ],
           ),

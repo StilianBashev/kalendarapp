@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/event_model.dart';
 
 class EventService {
-  final CollectionReference events = FirebaseFirestore.instance.collection('events');
+  final CollectionReference events = FirebaseFirestore.instance.collection('Събития');
 
   Future<void> addEvent(EventModel event) async {
     try {

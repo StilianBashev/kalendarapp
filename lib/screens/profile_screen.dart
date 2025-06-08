@@ -34,12 +34,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text('Delete Event'),
-        content: const Text('Are you sure you want to delete this event?'),
+        title: const Text('Изтрий събитие'),
+        content: const Text('Сигурни ли сте, че искате да изтриете това събитие?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+            child: const Text('Отказ'),
           ),
           TextButton(
             onPressed: () async {
@@ -47,8 +47,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Navigator.pop(context);
               loadUserEvents();
             },
-            child: const Text('Delete'),
+            child: const Text('Изтрий', style: TextStyle(color: Colors.red),
           ),
+        )
         ],
       ),
     );
@@ -65,28 +66,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final user = FirebaseServices().currentUser;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
+      appBar: AppBar(title: const Text('Профил')),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Name: ${user?.displayName ?? 'N/A'}'),
+            Text('Име : ${user?.displayName ?? 'N/A'}'),
             const SizedBox(height: 8),
-            Text('Email: ${user?.email ?? 'N/A'}'),
+            Text('Имейл : ${user?.email ?? 'N/A'}'),
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: logoutUser,
-              child: const Text('Logout'),
+              child: const Text('Изход'),
             ),
             const SizedBox(height: 24),
-            const Text('My Events', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Моите събития', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Expanded(
               child: loading
                   ? const Center(child: CircularProgressIndicator())
                   : events.isEmpty
-                      ? const Text('No events created.')
+                      ? const Text('Няма създадени събития.')
                       : ListView.builder(
                           itemCount: events.length,
                           itemBuilder: (_, index) {

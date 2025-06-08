@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushReplacementNamed(context, '/home');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Login failed. Please try again.')),
+        const SnackBar(content: Text('Грешка при входа. Моля, опитайте отново.')),
       );
     }
   }
@@ -51,27 +51,27 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               CustomTextField(
                 controller: emailController,
-                label: 'Email',
+                label: 'Имейл',
                 validator: Validators.validateEmail,
               ),
               const SizedBox(height: 16),
               CustomTextField(
                 controller: passwordController,
-                label: 'Password',
+                label: 'Парола',
                 obscureText: true,
                 validator: Validators.validatePassword,
               ),
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: loginUser,
-                child: const Text('Login'),
+                child: const Text('Вход'),
               ),
               const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/register');
                 },
-                child: const Text('No account? Register'),
+                child: const Text('Все още нямате акаунт? Регистрирайте се тук'),
               ),
             ],
           ),
