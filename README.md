@@ -1,16 +1,63 @@
-# kalendar_app
+## Календар с Flutter и Firebase
 
-A new Flutter project.
+Приложение за управление на събития с Flutter и Firebase. Потребителите могат да се регистрират, влизат в профила си, създават, редактират и изтриват събития, които се показват в календара.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Функционалности
 
-A few resources to get you started if this is your first Flutter project:
+- Вход и регистрация с Firebase Authentication
+- Преглед на събития по дати в календар
+- Създаване на събития със заглавие, описание (по избор), начална и крайна дата/час
+- Редакция на вече създадени събития
+- Профил с показване на имейл и всички събития на потребителя
+- Изтриване на събития с потвърждение
+- Долна навигация между "Календар" и "Профил"
+- Валидиране на формите (имейл, парола, празни полета)
+- Събитията се съхраняват във Firebase Firestore
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- ## Стъпки за стартиране
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Клонирай проекта:
+```
+-git clone https://github.com/yourusername/kalendar_app.git
+-cd kalendar_app
+```
+
+2.Инсталирай зависимостите:
+```
+-flutter pub get
+```
+
+3.Конфигурирай Firebase:
+Добави google-services.json (за Android) или GoogleService-Info.plist (за iOS)
+Активирай Email/Password login в Firebase Authentication
+Създай база данни във Firestore
+
+4.Стартирай приложението
+-flutter run
+
+- ## Структура на данните
+
+Потребител:
+```
+{
+  "uid": "a1b2c3d4",
+  "email": "pesho@example.com",
+  "name": "Pesho Peshov",
+  "createdAt": "2025-06-01T10:20:30Z"
+}
+```
+
+Събитие:
+```
+{
+  "id": "event_001",
+  "title": "Среща с екипа",
+  "description": "Обсъждане на проектните задачи",
+  "startTime": "2025-06-05T14:00:00Z",
+  "endTime": "2025-06-05T15:00:00Z",
+  "createdBy": "a1b2c3d4",
+  "color": "#2196F3",
+  "createdAt": "2025-06-01T12:00:00Z"
+}
