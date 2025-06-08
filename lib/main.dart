@@ -1,32 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'login_screen.dart';
-import 'register_screen.dart';
-import 'navigation_screen.dart';
-import 'event_form_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'screens/login_screen.dart';
+import 'screens/register_screen.dart';
+import 'screens/navigation_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+
+  final user = FirebaseAuth.instance.currentUser;
+
+  runApp(
+    MaterialApp(
+      title: 'Kalendar App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
+      initialRoute: user == null ? '/login' : '/home',
+      routes: {
+        '/login': (_) => const LoginScreen(),
+        '/register': (_) => const RegisterScreen(),
+        '/home': (_) => const NavigationScreen(),
+      },
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class KalendarApp extends StatelessWidget {
+  const KalendarApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginScreen(),
+      title: 'Kalendar App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
+      initialRoute: FirebaseAuth.instance.currentUser == null ? '/login' : '/home',
       routes: {
-        '/login': (c) => LoginScreen(),
-        '/register': (c) => RegisterScreen(),
-        '/home': (c) => MainNavigationScreen(),
-        '/add_event': (c) {
-          var a = ModalRoute.of(c)?.settings.arguments as Map?;
-          return EventFormScreen(
-            eventId: a?['eventId'],
-            existingData: a?['existingData'],
-          );
-        },
+        '/login': (_) => const LoginScreen(),
+        '/register': (_) => const RegisterScreen(),
+        '/home': (_) => const NavigationScreen(),
       },
     );
   }
