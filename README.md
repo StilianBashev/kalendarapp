@@ -30,12 +30,14 @@
 ```
 
 3.Конфигурирай Firebase:
-Добави google-services.json (за Android) или GoogleService-Info.plist (за iOS)
-Активирай Email/Password login в Firebase Authentication
+Добави google-services.json (Android) или GoogleService-Info.plist (за iOS)
+Активирай Email/Password login във Firebase Authentication
 Създай база данни във Firestore
 
 4.Стартирай приложението
+```
 -flutter run
+```
 
 - ## Структура на данните
 
