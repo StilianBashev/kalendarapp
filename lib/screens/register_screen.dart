@@ -37,7 +37,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       Navigator.pushReplacementNamed(context, '/home');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Грешка при регистрацията. Моля, опитайте отново.')),
+        const SnackBar(
+            content: Text('Грешка при регистрацията. Моля, опитайте отново.')),
       );
     }
   }

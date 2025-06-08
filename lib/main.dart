@@ -21,7 +21,8 @@ class KalendarApp extends StatelessWidget {
       title: 'Kalendar App',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: FirebaseAuth.instance.currentUser == null ? '/login' : '/home',
+      initialRoute:
+          FirebaseAuth.instance.currentUser == null ? '/login' : '/home',
       routes: {
         '/login': (_) => const LoginScreen(),
         '/register': (_) => const RegisterScreen(),

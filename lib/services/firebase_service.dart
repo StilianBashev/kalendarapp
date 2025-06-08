@@ -9,7 +9,8 @@ class FirebaseServices {
     required String name,
   }) async {
     try {
-      final credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      final credential = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       await credential.user?.updateDisplayName(name);
       return credential.user;
     } catch (e) {
@@ -22,7 +23,8 @@ class FirebaseServices {
     required String password,
   }) async {
     try {
-      final credential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      final credential = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
       return credential.user;
     } catch (e) {
       rethrow;

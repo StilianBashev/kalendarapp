@@ -35,7 +35,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       context: context,
       builder: (_) => AlertDialog(
         title: const Text('Изтрий събитие'),
-        content: const Text('Сигурни ли сте, че искате да изтриете това събитие?'),
+        content:
+            const Text('Сигурни ли сте, че искате да изтриете това събитие?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -47,9 +48,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Navigator.pop(context);
               loadUserEvents();
             },
-            child: const Text('Изтрий', style: TextStyle(color: Colors.red),
-          ),
-        )
+            child: const Text(
+              'Изтрий',
+              style: TextStyle(color: Colors.red),
+            ),
+          )
         ],
       ),
     );
@@ -81,7 +84,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: const Text('Изход'),
             ),
             const SizedBox(height: 24),
-            const Text('Моите събития', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('Моите събития',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Expanded(
               child: loading

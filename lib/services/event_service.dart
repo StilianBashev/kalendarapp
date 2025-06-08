@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/event_model.dart';
 
 class EventService {
-  final CollectionReference events = FirebaseFirestore.instance.collection('Събития');
+  final CollectionReference events =
+      FirebaseFirestore.instance.collection('Събития');
 
   Future<void> addEvent(EventModel event) async {
     try {
@@ -32,7 +33,8 @@ class EventService {
     try {
       final snapshot = await events.where('createdBy', isEqualTo: uid).get();
       return snapshot.docs
-          .map((doc) => EventModel.fromMap(doc.id, doc.data() as Map<String, dynamic>))
+          .map((doc) =>
+              EventModel.fromMap(doc.id, doc.data() as Map<String, dynamic>))
           .toList();
     } catch (e) {
       rethrow;
@@ -49,7 +51,8 @@ class EventService {
           .get();
 
       return snapshot.docs
-          .map((doc) => EventModel.fromMap(doc.id, doc.data() as Map<String, dynamic>))
+          .map((doc) =>
+              EventModel.fromMap(doc.id, doc.data() as Map<String, dynamic>))
           .toList();
     } catch (e) {
       rethrow;

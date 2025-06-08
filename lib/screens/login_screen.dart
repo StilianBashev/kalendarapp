@@ -11,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _isLoading = false;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -25,6 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
   void loginUser() async {
     if (!_formKey.currentState!.validate()) return;
 
+setState(() => _isLoading = true);
+
     try {
       await FirebaseServices().login(
         email: emailController.text.trim(),
@@ -34,8 +37,14 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushReplacementNamed(context, '/home');
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Грешка при входа. Моля, опитайте отново.')),
+        const SnackBar(
+            content: Text('Грешка при входа. Моля, опитайте отново.')),
       );
+      } finally 
+      {
+    if (mounted) {
+      setState(() => _isLoading = false);
+    }
     }
   }
 
@@ -62,7 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 validator: Validators.validatePassword,
               ),
               const SizedBox(height: 24),
-              ElevatedButton(
+              _isLoading
+              ? const CircularProgressIndicator()
+              : ElevatedButton(
                 onPressed: loginUser,
                 child: const Text('Вход'),
               ),
@@ -71,7 +82,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/register');
                 },
-                child: const Text('Все още нямате акаунт? Регистрирайте се тук'),
+                child:
+                    const Text('Все още нямате акаунт? Регистрирайте се тук'),
               ),
             ],
           ),

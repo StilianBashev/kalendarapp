@@ -16,8 +16,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
   DateTime _selectedDay = DateTime.now();
   List<EventModel> _events = [];
   bool _loading = false;
-
+  
   @override
+  
   void initState() {
     super.initState();
     _loadEvents();
@@ -70,8 +71,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
             selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
             onDaySelected: _onDaySelected,
             calendarStyle: const CalendarStyle(
-              todayDecoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-              selectedDecoration: BoxDecoration(color: Colors.black, shape: BoxShape.circle),
+              todayDecoration:
+                  BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+              selectedDecoration:
+                  BoxDecoration(color: Colors.black, shape: BoxShape.circle),
             ),
           ),
           const SizedBox(height: 8),
@@ -79,7 +82,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
             child: _loading
                 ? const Center(child: CircularProgressIndicator())
                 : _events.isEmpty
-                    ? const Center(child: Text('Все още няма събития за този ден.'))
+                    ? const Center(
+                        child: Text('Все още няма събития за този ден.'))
                     : ListView.builder(
                         itemCount: _events.length,
                         itemBuilder: (_, index) {

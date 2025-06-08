@@ -31,7 +31,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: 'Календар'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today), label: 'Календар'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Профил'),
         ],
       ),

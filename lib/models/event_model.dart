@@ -36,10 +36,13 @@ class EventModel {
       id: id,
       title: map['title'] ?? '',
       description: map['description'] ?? '',
-      startTime: DateTime.tryParse(map['startTime'].replaceFirst('Z', '')) ?? DateTime.now(),
-      endTime: DateTime.tryParse(map['endTime'].replaceFirst('Z', '')) ?? DateTime.now(),
+      startTime: DateTime.tryParse(map['startTime'].replaceFirst('Z', '')) ??
+          DateTime.now(),
+      endTime: DateTime.tryParse(map['endTime'].replaceFirst('Z', '')) ??
+          DateTime.now(),
       createdBy: map['createdBy'] ?? '',
-      createdAt: DateTime.tryParse(map['createdAt'].replaceFirst('Z', '')) ?? DateTime.now(),
+      createdAt: DateTime.tryParse(map['createdAt'].replaceFirst('Z', '')) ??
+          DateTime.now(),
       color: map['color'],
     );
   }

@@ -64,8 +64,10 @@ class _EventFormScreenState extends State<EventFormScreen> {
     );
     if (picked != null) {
       setState(() {
-        if (isStart) startDate = picked;
-        else endDate = picked;
+        if (isStart)
+          startDate = picked;
+        else
+          endDate = picked;
       });
     }
   }
@@ -77,8 +79,10 @@ class _EventFormScreenState extends State<EventFormScreen> {
     );
     if (picked != null) {
       setState(() {
-        if (isStart) startTime = picked;
-        else endTime = picked;
+        if (isStart)
+          startTime = picked;
+        else
+          endTime = picked;
       });
     }
   }
@@ -139,7 +143,8 @@ class _EventFormScreenState extends State<EventFormScreen> {
     final isEdit = widget.event != null;
 
     return Scaffold(
-      appBar: AppBar(title: Text(isEdit ? 'Редактирай събитие' : 'Ново събитие')),
+      appBar:
+          AppBar(title: Text(isEdit ? 'Редактирай събитие' : 'Ново събитие')),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Form(
