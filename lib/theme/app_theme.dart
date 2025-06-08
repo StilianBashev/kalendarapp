@@ -44,7 +44,8 @@ class AppTheme {
     textTheme: const TextTheme(
       bodyLarge: TextStyle(fontSize: 16, color: Colors.white),
       bodyMedium: TextStyle(fontSize: 14, color: Colors.white70),
-      titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+      titleLarge: TextStyle(
+          fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
     ),
   );
 }

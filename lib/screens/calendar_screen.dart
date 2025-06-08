@@ -16,9 +16,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
   DateTime _selectedDay = DateTime.now();
   List<EventModel> _events = [];
   bool _loading = false;
-  
+
   @override
-  
   void initState() {
     super.initState();
     _loadEvents();

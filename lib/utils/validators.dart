@@ -1,8 +1,9 @@
 class Validators {
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) return 'Въведете имейл';
-    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value))
+    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
       return 'Невалиден имейл';
+    }
     return null;
   }
 
@@ -13,8 +14,9 @@ class Validators {
   }
 
   static String? validateNotEmpty(String? value) {
-    if (value == null || value.trim().isEmpty)
+    if (value == null || value.trim().isEmpty) {
       return 'Това поле е задължително';
+    }
     return null;
   }
 }

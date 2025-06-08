@@ -64,10 +64,11 @@ class _EventFormScreenState extends State<EventFormScreen> {
     );
     if (picked != null) {
       setState(() {
-        if (isStart)
+        if (isStart) {
           startDate = picked;
-        else
+        } else {
           endDate = picked;
+        }
       });
     }
   }
@@ -79,10 +80,11 @@ class _EventFormScreenState extends State<EventFormScreen> {
     );
     if (picked != null) {
       setState(() {
-        if (isStart)
+        if (isStart) {
           startTime = picked;
-        else
+        } else {
           endTime = picked;
+        }
       });
     }
   }

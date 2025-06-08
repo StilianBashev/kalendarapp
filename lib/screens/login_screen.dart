@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void loginUser() async {
     if (!_formKey.currentState!.validate()) return;
 
-setState(() => _isLoading = true);
+    setState(() => _isLoading = true);
 
     try {
       await FirebaseServices().login(
@@ -40,11 +40,10 @@ setState(() => _isLoading = true);
         const SnackBar(
             content: Text('Грешка при входа. Моля, опитайте отново.')),
       );
-      } finally 
-      {
-    if (mounted) {
-      setState(() => _isLoading = false);
-    }
+    } finally {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
@@ -72,11 +71,11 @@ setState(() => _isLoading = true);
               ),
               const SizedBox(height: 24),
               _isLoading
-              ? const CircularProgressIndicator()
-              : ElevatedButton(
-                onPressed: loginUser,
-                child: const Text('Вход'),
-              ),
+                  ? const CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: loginUser,
+                      child: const Text('Вход'),
+                    ),
               const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
